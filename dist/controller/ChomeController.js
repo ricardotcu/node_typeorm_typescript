@@ -21,7 +21,6 @@ var _Instagram = require("../entity/Instagram");
 
 //retorna os produtos da home page, produtos marcados como mais vendidos
 const getHome = async (req, res) => {
-  console.log('passei aqui maluco');
   const destaque = 'sim';
   const destaques = await (0, _typeorm.getRepository)(_Produto.Produto).find({
     where: {
@@ -29,10 +28,9 @@ const getHome = async (req, res) => {
     }
   });
   const slides = await (0, _typeorm.getRepository)(_Slider.Slider).find();
-  console.log('passei aqui maluco 2');
   const blog = await (0, _typeorm.getRepository)(_Blog.Blog).find();
-  const instagram = await (0, _typeorm.getRepository)(_Categorias.Categoria).find();
-  const categorias = await (0, _typeorm.getRepository)(_Instagram.Instagram).find();
+  const instagram = await (0, _typeorm.getRepository)(_Instagram.Instagram).find();
+  const categorias = await (0, _typeorm.getRepository)(_Categorias.Categoria).find();
   const home_content = new _Home.Home(destaques, slides, blog, instagram, categorias);
   return res.json(home_content);
 }; //retorna os produtos da produtos page

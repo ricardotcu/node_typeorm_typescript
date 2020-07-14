@@ -9,7 +9,6 @@ import { Instagram } from '../entity/Instagram'
 
 //retorna os produtos da home page, produtos marcados como mais vendidos
 export const getHome = async (req: Request, res: Response) => {
-    console.log('passei aqui maluco')
     const destaque = 'sim';
 
     const destaques = await getRepository(Produto).find({
@@ -19,10 +18,9 @@ export const getHome = async (req: Request, res: Response) => {
     });
 
     const slides = await getRepository(Slider).find();
-    console.log('passei aqui maluco 2')
     const blog = await getRepository(Blog).find();
-    const instagram = await getRepository(Categoria).find();
-    const categorias = await getRepository(Instagram).find();
+    const instagram = await getRepository(Instagram).find();
+    const categorias = await getRepository(Categoria).find();
     const home_content = new Home(destaques, slides, blog, instagram, categorias)
 
     return res.json(home_content);
