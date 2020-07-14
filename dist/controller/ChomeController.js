@@ -30,7 +30,7 @@ const getHome = async (req, res) => {
   const slides = await (0, _typeorm.getRepository)(_Slider.Slider).find();
   const blog = await (0, _typeorm.getRepository)(_Blog.Blog).find();
   const instagram = await (0, _typeorm.getRepository)(_Instagram.Instagram).find();
-  const categorias = await (0, _typeorm.getRepository)(_Categorias.Categoria).find();
+  const categorias = await (0, _typeorm.getRepository)(_Categorias.Categorias).find();
   const home_content = new _Home.Home(destaques, slides, blog, instagram, categorias);
   return res.json(home_content);
 }; //retorna os produtos da produtos page

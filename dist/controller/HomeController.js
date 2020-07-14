@@ -40,7 +40,7 @@ const addCategoriaAdmin = async (req, res) => {
   const {
     caminho
   } = req.body;
-  const categoria = await (0, _typeorm.getRepository)(_Categorias.Categoria).save({
+  const categoria = await (0, _typeorm.getRepository)(_Categorias.Categorias).save({
     caminho
   });
   return res.json(categoria);

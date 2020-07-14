@@ -3,7 +3,7 @@
 Object.defineProperty(exports, "__esModule", {
   value: true
 });
-exports.Categoria = void 0;
+exports.Categorias = void 0;
 
 var _typeorm = require("typeorm");
 
@@ -15,10 +15,10 @@ function _applyDecoratedDescriptor(target, property, decorators, descriptor, con
 
 function _initializerWarningHelper(descriptor, context) { throw new Error('Decorating class property failed. Please ensure that ' + 'proposal-class-properties is enabled and runs after the decorators transform.'); }
 
-let Categoria = (_dec = (0, _typeorm.Entity)(), _dec2 = (0, _typeorm.PrimaryGeneratedColumn)("uuid"), _dec3 = (0, _typeorm.Column)("varchar"), _dec4 = (0, _typeorm.Column)("boolean", {
+let Categorias = (_dec = (0, _typeorm.Entity)(), _dec2 = (0, _typeorm.PrimaryGeneratedColumn)("uuid"), _dec3 = (0, _typeorm.Column)("varchar"), _dec4 = (0, _typeorm.Column)("boolean", {
   default: false,
   nullable: true
-}), _dec(_class = (_class2 = (_temp = class Categoria {
+}), _dec(_class = (_class2 = (_temp = class Categorias {
   constructor() {
     _initializerDefineProperty(this, "id", _descriptor, this);
 
@@ -43,4 +43,4 @@ let Categoria = (_dec = (0, _typeorm.Entity)(), _dec2 = (0, _typeorm.PrimaryGene
   writable: true,
   initializer: null
 })), _class2)) || _class);
-exports.Categoria = Categoria;
+exports.Categorias = Categorias;

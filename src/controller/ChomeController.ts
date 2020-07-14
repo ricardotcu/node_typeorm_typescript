@@ -4,7 +4,7 @@ import { Produto } from '../entity/Produto'
 import { Slider } from '../entity/Slider'
 import { Blog } from '../entity/Blog'
 import { Home } from '../models/Home'
-import { Categoria } from './../entity/Categorias';
+import { Categorias } from './../entity/Categorias';
 import { Instagram } from '../entity/Instagram'
 
 //retorna os produtos da home page, produtos marcados como mais vendidos
@@ -20,7 +20,7 @@ export const getHome = async (req: Request, res: Response) => {
     const slides = await getRepository(Slider).find();
     const blog = await getRepository(Blog).find();
     const instagram = await getRepository(Instagram).find();
-    const categorias = await getRepository(Categoria).find();
+    const categorias = await getRepository(Categorias).find();
     const home_content = new Home(destaques, slides, blog, instagram, categorias)
 
     return res.json(home_content);
