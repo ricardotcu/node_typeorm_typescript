@@ -27,9 +27,9 @@ const options:cors.CorsOptions = {
     origin: [
         "*",
         "http://localhost:4200",
-        "https://node-typeorm-typescript.herokuapp.com",
-        "https://node-typeorm-typescript.herokuapp.com/",
-        "https://node-typeorm-typescript.herokuapp.com/chome"
+        "https://zen-poincare-31d36c.netlify.app",
+        "https://zen-poincare-31d36c.netlify.app/",
+        "https://zen-poincare-31d36c.netlify.app/chome"
     ],
     preflightContinue: false
 };
