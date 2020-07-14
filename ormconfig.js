@@ -2,7 +2,7 @@ console.log(process.env.HOST);
 
 module.exports = {
    "type": "postgres",
-   "url": "postgres://lxqfefgjlvlfiu:2bf1d76fcaff3f39c38a4cde6466e14f04bc94fa66fa890f4a4cc85876d16409@ec2-54-161-208-31.compute-1.amazonaws.com:5432/dba0tulgo0gd63",
+   "url": "postgres://rmbzjryzugbsxz:fbca763a1f1537c00146203f1a3cb06f724c291d2c503aecf0745bea64a7b0d7@ec2-52-70-15-120.compute-1.amazonaws.com:5432/d2oa3d2llsvran",
    ssl: {
       rejectUnauthorized: false
    },
