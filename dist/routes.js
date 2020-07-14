@@ -31,7 +31,7 @@ const options = {
   allowedHeaders: ["Origin", "X-Requested-With", "Content-Type", "Accept", "X-Access-Token", "Authorization"],
   credentials: true,
   methods: "GET,HEAD,OPTIONS,PUT,PATCH,POST,DELETE",
-  origin: ["*", "http://localhost:4200", "https://zen-poincare-31d36c.netlify.app", "https://zen-poincare-31d36c.netlify.app/", "https://zen-poincare-31d36c.netlify.app/chome"],
+  origin: ["*", "http://localhost:4200", "https://node-typeorm-typescript.herokuapp.com", "https://node-typeorm-typescript.herokuapp.com/", "https://node-typeorm-typescript.herokuapp.com/chome"],
   preflightContinue: false
 }; //use cors middleware
 

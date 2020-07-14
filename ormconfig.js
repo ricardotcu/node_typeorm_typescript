@@ -6,7 +6,7 @@ module.exports = {
    ssl: {
       rejectUnauthorized: false
    },
-   "synchronize": false,
+   "synchronize": true,
    "logging": false,
    "entities": [
       "dist/entity/**/*.js"
