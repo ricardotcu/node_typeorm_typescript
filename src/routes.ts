@@ -26,13 +26,12 @@ import { auth } from './middlewares/auth';
 const routes = Router();
 
 //opçoes para cors midddleware
-const options:cors.CorsOptions = {
+const options: cors.CorsOptions = {
     allowedHeaders: [
         "Origin",
         "X-Requested-With",
         "Content-Type",
         "Accept",
-        "X-Access-Token",
         "Authorization"
     ],
     credentials: true,
@@ -41,12 +40,9 @@ const options:cors.CorsOptions = {
         "*",
         "http://localhost:4200",
         "https://keen-curie-febfbf.netlify.app",
-        "https://keen-curie-febfbf.netlify.app/",
         "https://keen-curie-febfbf.netlify.app/home",
         "https://keen-curie-febfbf.netlify.app/register_cliente",
-        "https://keen-curie-febfbf.netlify.app/register_cliente/",
-        "https://keen-curie-febfbf.netlify.app/login_cliente",
-        "https://keen-curie-febfbf.netlify.app/login_cliente/"
+        "https://keen-curie-febfbf.netlify.app/login_cliente"
     ],
     preflightContinue: false
 };
