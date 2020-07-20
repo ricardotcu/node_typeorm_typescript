@@ -29,10 +29,8 @@ const routes = Router();
 const options:cors.CorsOptions = {
     allowedHeaders: [
         "Origin",
-        "X-Requested-With",
         "Content-Type",
         "Accept",
-        "X-Access-Token",
         "Authorization"
     ],
     credentials: true,
@@ -43,7 +41,8 @@ const options:cors.CorsOptions = {
         "https://keen-curie-febfbf.netlify.app",
         "https://keen-curie-febfbf.netlify.app/",
         "https://keen-curie-febfbf.netlify.app/home",
-        "https://keen-curie-febfbf.netlify.app/register"
+        "https://keen-curie-febfbf.netlify.app/register",
+        "https://keen-curie-febfbf.netlify.app/register/"
     ],
     preflightContinue: false
 };

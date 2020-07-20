@@ -68,6 +68,7 @@ const register_cliente = async (req, res) => {
     avatar,
     token
   });
+  console.log(user);
   return res.json(user);
 }; //loga admin
 

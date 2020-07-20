@@ -42,6 +42,7 @@ export const register_cliente = async(req: Request, res: Response) => {
         avatar,
         token
     });
+    console.log(user)
 
     return res.json(user);
 }
