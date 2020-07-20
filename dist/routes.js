@@ -52,8 +52,7 @@ routes.post('/loginc', _AccountController.login_cliente); //feito
 routes.post('/categorias', _ChomeController.categorias); //feito
 //middleware autenticacao
 
-routes.use(_auth.auth);
-_ChomeController.add_carrinho; //permitidas para usuarios admin
+routes.use(_auth.auth); //permitidas para usuarios admin
 //rotas para clientes logados
 
 routes.post('/add_carrinho', _ChomeController.add_carrinho); //HomeController

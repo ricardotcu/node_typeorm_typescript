@@ -63,8 +63,11 @@ routes.post('/login', login_admin); //feito
 routes.post('/loginc', login_cliente); //feito
 routes.post('/categorias', categorias); //feito
 
+
+
+
 //middleware autenticacao
-routes.use(auth);add_carrinho
+routes.use(auth);
 
 //permitidas para usuarios admin
 
