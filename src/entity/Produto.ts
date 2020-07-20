@@ -23,10 +23,4 @@ export class Produto{
 
     @ManyToOne(type => Categoria, Categoria => Categoria.produtos)
     categoria: Categoria;
-
-    @CreateDateColumn()
-    createdAt: Date;
-  
-    @UpdateDateColumn()
-    updatedAt: Date;
 }

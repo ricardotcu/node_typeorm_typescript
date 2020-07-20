@@ -25,10 +25,4 @@ export class Cliente{
     @ManyToMany(type => Produto)
     @JoinTable()
     carrinho: Produto[];
-
-    @CreateDateColumn()
-    createdAt: Date;
-  
-    @UpdateDateColumn()
-    updatedAt: Date;
 }

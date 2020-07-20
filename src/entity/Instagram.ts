@@ -8,9 +8,4 @@ export class Instagram{
     @Column("varchar")
     caminho: string;
     
-    @CreateDateColumn()
-    createdAt: Date;
-  
-    @UpdateDateColumn()
-    updatedAt: Date;
 }

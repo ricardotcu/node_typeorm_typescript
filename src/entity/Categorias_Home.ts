@@ -7,10 +7,4 @@ export class Categorias_Home{
     
     @Column("varchar")
     caminho: string;
-
-    @CreateDateColumn()
-    createdAt: Date;
-  
-    @UpdateDateColumn()
-    updatedAt: Date;
 }

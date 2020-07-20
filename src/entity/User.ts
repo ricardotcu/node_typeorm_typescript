@@ -20,10 +20,4 @@ export class User{
     
     @Column("varchar")
     token: string;
-
-    @CreateDateColumn()
-    createdAt: Date;
-  
-    @UpdateDateColumn()
-    updatedAt: Date;
 }
