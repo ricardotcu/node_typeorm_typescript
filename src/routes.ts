@@ -61,7 +61,7 @@ routes.post('/register', register_admin); //feito
 routes.post('/registerC', register_cliente); //feito 
 routes.post('/login', login_admin); //feito
 routes.post('/loginc', login_cliente); //feito
-routes.post('/categorias', categorias); //feito
+routes.get('/categorias', categorias); //feito
 
 
 

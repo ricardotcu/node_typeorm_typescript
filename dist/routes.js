@@ -49,7 +49,7 @@ routes.post('/login', _AccountController.login_admin); //feito
 
 routes.post('/loginc', _AccountController.login_cliente); //feito
 
-routes.post('/categorias', _ChomeController.categorias); //feito
+routes.get('/categorias', _ChomeController.categorias); //feito
 //middleware autenticacao
 
 routes.use(_auth.auth); //permitidas para usuarios admin
