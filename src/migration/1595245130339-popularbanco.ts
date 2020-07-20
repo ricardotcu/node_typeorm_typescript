@@ -3,14 +3,18 @@ import {MigrationInterface, QueryRunner} from "typeorm";
 export class popularbanco1595245130339 implements MigrationInterface {
 
     public async up(queryRunner: QueryRunner): Promise<void> {
+        await queryRunner.query(`DROP TABLE "blog"`);
+        await queryRunner.query(`DROP TABLE "instagram"`);
+        await queryRunner.query(`DROP TABLE "carrinho"`);
+
         await queryRunner.query(
-          `INSERT INTO "categoria_home" ("caminho") VALUES ('../../assets/images/calca.jpg')`
+          `INSERT INTO "categorias_home" ("caminho") VALUES ('../../assets/images/calca.jpg')`
         );
         await queryRunner.query(
-          `INSERT INTO "categoria_home" ("caminho") VALUES ('../../assets/images/camisa.png')`
+          `INSERT INTO "categorias_home" ("caminho") VALUES ('../../assets/images/camisa.png')`
         );
         await queryRunner.query(
-          `INSERT INTO "categoria_home" ("caminho") VALUES ('../../assets/images/sapato.jpg')`
+          `INSERT INTO "categorias_home" ("caminho") VALUES ('../../assets/images/sapato.jpg')`
         );
 
 

@@ -2,10 +2,8 @@ import { getRepository, getConnection } from 'typeorm';
 import { Request, Response } from 'express';
 import { Produto } from '../entity/Produto'
 import { Slider } from '../entity/Slider'
-import { Blog } from '../entity/Blog'
 import { Home } from '../models/Home'
 import { Categorias_Home } from '../entity/Categorias_Home';
-import { Instagram } from '../entity/Instagram'
 import { Cliente } from '../entity/Cliente'
 
 //retorna todos os produtos(pagina de home-destaque=true)
@@ -20,10 +18,8 @@ export const get_home = async (req: Request, res: Response) => {
         });
 
     const slides = await getRepository(Slider).find();
-    const blog = await getRepository(Blog).find();
-    const instagram = await getRepository(Instagram).find();
     const categorias = await getRepository(Categorias_Home).find();
-    const home_content = new Home(destaques, slides, blog, instagram, categorias)
+    const home_content = new Home(destaques, slides, categorias)
 
     return res.json(home_content);
 }

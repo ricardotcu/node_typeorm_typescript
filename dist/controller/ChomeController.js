@@ -11,13 +11,9 @@ var _Produto = require("../entity/Produto");
 
 var _Slider = require("../entity/Slider");
 
-var _Blog = require("../entity/Blog");
-
 var _Home = require("../models/Home");
 
 var _Categorias_Home = require("../entity/Categorias_Home");
-
-var _Instagram = require("../entity/Instagram");
 
 var _Cliente = require("../entity/Cliente");
 
@@ -32,10 +28,8 @@ const get_home = async (req, res) => {
     }
   });
   const slides = await (0, _typeorm.getRepository)(_Slider.Slider).find();
-  const blog = await (0, _typeorm.getRepository)(_Blog.Blog).find();
-  const instagram = await (0, _typeorm.getRepository)(_Instagram.Instagram).find();
   const categorias = await (0, _typeorm.getRepository)(_Categorias_Home.Categorias_Home).find();
-  const home_content = new _Home.Home(destaques, slides, blog, instagram, categorias);
+  const home_content = new _Home.Home(destaques, slides, categorias);
   return res.json(home_content);
 }; //retorna todos os produtos(pagina de produtos)
 
