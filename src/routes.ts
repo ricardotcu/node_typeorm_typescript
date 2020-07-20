@@ -42,7 +42,8 @@ const options:cors.CorsOptions = {
         "http://localhost:4200",
         "https://keen-curie-febfbf.netlify.app",
         "https://keen-curie-febfbf.netlify.app/",
-        "https://keen-curie-febfbf.netlify.app/home"
+        "https://keen-curie-febfbf.netlify.app/home",
+        "https://keen-curie-febfbf.netlify.app/register"
     ],
     preflightContinue: false
 };
