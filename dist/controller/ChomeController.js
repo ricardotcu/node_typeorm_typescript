@@ -3,7 +3,7 @@
 Object.defineProperty(exports, "__esModule", {
   value: true
 });
-exports.add_carrinho = exports.get_produto = exports.get_produtos = exports.get_home = void 0;
+exports.categorias = exports.add_carrinho = exports.get_produto = exports.get_produtos = exports.get_home = void 0;
 
 var _typeorm = require("typeorm");
 
@@ -16,6 +16,8 @@ var _Home = require("../models/Home");
 var _Categorias_Home = require("../entity/Categorias_Home");
 
 var _Cliente = require("../entity/Cliente");
+
+var _Categoria = require("../entity/Categoria");
 
 //retorna todos os produtos(pagina de home-destaque=true)
 const get_home = async (req, res) => {
@@ -79,6 +81,17 @@ const add_carrinho = async (req, res) => {
   }
 
   console.log('up com sucesso');
-};
+}; //retorna categorias dos produtos
+
 
 exports.add_carrinho = add_carrinho;
+
+const categorias = async (req, res) => {
+  const cat = await (0, _typeorm.getRepository)(_Categoria.Categoria).find({
+    select: ["id", "nome"],
+    relations: ["produtos"]
+  });
+  return res.json(cat);
+};
+
+exports.categorias = categorias;

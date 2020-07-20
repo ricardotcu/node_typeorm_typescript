@@ -1,10 +1,11 @@
-import { getRepository, getConnection } from 'typeorm';
+import { getRepository } from 'typeorm';
 import { Request, Response } from 'express';
 import { Produto } from '../entity/Produto'
 import { Slider } from '../entity/Slider'
 import { Home } from '../models/Home'
 import { Categorias_Home } from '../entity/Categorias_Home';
 import { Cliente } from '../entity/Cliente'
+import { Categoria } from '../entity/Categoria';
 
 //retorna todos os produtos(pagina de home-destaque=true)
 export const get_home = async (req: Request, res: Response) => {
@@ -59,4 +60,16 @@ export const add_carrinho = async(req: Request, res: Response) => {
         return res.status(404).json({message: 'erro up'})
     }
     console.log('up com sucesso')
+}
+
+//retorna categorias dos produtos
+export const categorias = async(req: Request, res: Response) => {
+
+    const cat = await getRepository(Categoria).find(
+        {
+            select: ["id", "nome"],
+            relations: ["produtos"]
+        });
+    
+    return res.json(cat);
 }

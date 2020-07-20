@@ -48,6 +48,8 @@ routes.post('/registerC', _AccountController.register_cliente); //feito
 routes.post('/login', _AccountController.login_admin); //feito
 
 routes.post('/loginc', _AccountController.login_cliente); //feito
+
+routes.post('/categorias', _ChomeController.categorias); //feito
 //middleware autenticacao
 
 routes.use(_auth.auth);

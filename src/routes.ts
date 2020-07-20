@@ -4,7 +4,8 @@ import {
     get_home,
     get_produtos,
     get_produto,
-    add_carrinho
+    add_carrinho,
+    categorias
 } from './controller/ChomeController';
 import { getHomeAdmin, addInstagramAdmin, addCategoriaAdmin, addBlogAdmin, addSlidersAdmin } from './controller/HomeController';
 import { listProdutosAdmin, addProdutosAdmin, delProdutoAdmin, upProdutoAdmin } from './controller/ProdutosController';
@@ -60,6 +61,7 @@ routes.post('/register', register_admin); //feito
 routes.post('/registerC', register_cliente); //feito 
 routes.post('/login', login_admin); //feito
 routes.post('/loginc', login_cliente); //feito
+routes.post('/categorias', categorias); //feito
 
 //middleware autenticacao
 routes.use(auth);add_carrinho
