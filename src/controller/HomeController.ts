@@ -4,7 +4,7 @@ import { Produto } from '../entity/Produto'
 import { Instagram } from '../entity/Instagram'
 import { Blog } from '../entity/Blog'
 import { Slider } from '../entity/Slider'
-import { Categorias } from './../entity/Categorias';
+import { Categorias_Home } from '../entity/Categorias_Home';
 
 export const getHomeAdmin = async(req: Request, res: Response) => {
     const produtos = await getRepository(Produto).find();
@@ -25,7 +25,7 @@ export const addInstagramAdmin = async(req: Request, res: Response) => {
 export const addCategoriaAdmin = async(req: Request, res: Response) => {
     const { caminho } = req.body;
 
-    const categoria = await getRepository(Categorias).save({
+    const categoria = await getRepository(Categorias_Home).save({
         caminho
     });
 

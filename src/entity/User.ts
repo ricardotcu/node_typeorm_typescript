@@ -9,27 +9,21 @@ export class User{
     @Column("varchar")
     nome: string;
 
-    @Column("varchar", {  nullable : true  })
-    sobrenome: string;
-
     @Column("varchar")
     email: string;
 
     @Column("varchar")
     senha: string;
 
-    @Column("varchar", {  nullable : true  })
-    cargo: string;
+    @Column("varchar")
+    avatar: string;
+    
+    @Column("varchar")
+    token: string;
 
-    @Column("varchar", {  nullable : true  })
-    rg: string;
-
-    @Column("varchar", {  nullable : true  })
-    cpf: string;
-
-    @Column("boolean", {
-        default: false,
-        nullable : true
-    })
-    finished: boolean;
+    @CreateDateColumn({ name: 'created_At' })
+    createdAt: Date;
+  
+    @UpdateDateColumn({ name: 'updated_At' })
+    updatedAt: Date;
 }

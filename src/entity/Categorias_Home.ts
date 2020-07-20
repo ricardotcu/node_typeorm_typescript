@@ -1,16 +1,16 @@
 import { Entity, PrimaryGeneratedColumn, Column, CreateDateColumn, UpdateDateColumn } from 'typeorm';
 
 @Entity()
-export class Categorias{
+export class Categorias_Home{
     @PrimaryGeneratedColumn("uuid")
     id: number;
     
     @Column("varchar")
     caminho: string;
 
-    @Column("boolean", {
-        default: false,
-        nullable : true
-    })
-    finished: boolean;
+    @CreateDateColumn({ name: 'created_At' })
+    createdAt: Date;
+  
+    @UpdateDateColumn({ name: 'updated_At' })
+    updatedAt: Date;
 }

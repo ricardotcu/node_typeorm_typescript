@@ -1,4 +1,5 @@
-import { Entity, PrimaryGeneratedColumn, Column, CreateDateColumn, UpdateDateColumn } from 'typeorm';
+import { Entity, PrimaryGeneratedColumn, Column, CreateDateColumn, UpdateDateColumn, ManyToMany, JoinTable } from 'typeorm';
+import { Produto } from '../entity/Produto';
 
 
 @Entity()
@@ -15,9 +16,19 @@ export class Cliente{
     @Column("varchar")
     senha: string;
 
-    @Column("boolean", {
-        default: false,
-        nullable : true
-    })
-    finished: boolean;
+    @Column("varchar")
+    avatar: string;
+
+    @Column("varchar")
+    token: string;
+
+    @ManyToMany(type => Produto)
+    @JoinTable()
+    carrinho: Produto[];
+
+    @CreateDateColumn({ name: 'created_At' })
+    createdAt: Date;
+  
+    @UpdateDateColumn({ name: 'updated_At' })
+    updatedAt: Date;
 }

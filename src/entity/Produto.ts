@@ -1,5 +1,5 @@
-import { Entity, PrimaryGeneratedColumn, Column, CreateDateColumn, UpdateDateColumn } from 'typeorm';
-
+import { Entity, PrimaryGeneratedColumn, Column, CreateDateColumn, UpdateDateColumn, ManyToOne } from 'typeorm';
+import { Categoria } from '../entity/Categoria'
 
 @Entity()
 export class Produto{
@@ -21,24 +21,12 @@ export class Produto{
     @Column("varchar", {  nullable : true  })
     destaque: string;
 
-    @Column("varchar", {  nullable : true  })
-    camisas: string;
+    @ManyToOne(type => Categoria, Categoria => Categoria.produtos)
+    categoria: Categoria;
 
-    @Column("varchar", {  nullable : true  })
-    calcas: string;
-
-    @Column("varchar", {  nullable : true  })
-    sapatos: string;
-
-    @Column("varchar", {  nullable : true  })
-    oculos: string;
-
-    @Column("varchar", {  nullable : true  })
-    masc: string;
-
-    @Column("boolean", {
-        default: false,
-        nullable : true
-    })
-    finished: boolean;
+    @CreateDateColumn({ name: 'created_At' })
+    createdAt: Date;
+  
+    @UpdateDateColumn({ name: 'updated_At' })
+    updatedAt: Date;
 }

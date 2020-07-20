@@ -2,14 +2,14 @@ import { Produto } from '../entity/Produto'
 import { Slider } from '../entity/Slider'
 import { Blog } from '../entity/Blog'
 import { Instagram } from '../entity/Instagram'
-import { Categorias } from '../entity/Categorias'
+import { Categorias_Home } from '../entity/Categorias_Home'
 
 export class Home{
     destaques: [Produto]
     sliders: [Slider]
     blog: [Blog]
     instagram: [Instagram]
-    categoria: [Categorias]
+    categoria: [Categorias_Home]
 
     constructor(destaques1, slides1, blog1, instagram1, categoria1) {
         this.destaques = destaques1;

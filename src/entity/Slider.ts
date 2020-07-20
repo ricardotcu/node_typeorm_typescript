@@ -10,10 +10,10 @@ export class Slider{
 
     @Column("varchar")
     caminho: string;
-
-    @Column("boolean", {
-        default: false,
-        nullable : true
-    })
-    finished: boolean;
+    
+    @CreateDateColumn({ name: 'created_At' })
+    createdAt: Date;
+  
+    @UpdateDateColumn({ name: 'updated_At' })
+    updatedAt: Date;
 }

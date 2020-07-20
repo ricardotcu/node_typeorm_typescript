@@ -5,49 +5,58 @@ import { User } from '../entity/User';
 import { Cliente } from '../entity/Cliente';
 import * as jwt from 'jsonwebtoken';
 
-//cria usuario no banc
-export const register = async(req: Request, res: Response) => {
-    const { nome, sobrenome, email, senha, cargo, rg, cpf } = req.body;
+//cria usuario no banco
+export const register_admin = async(req: Request, res: Response) => {
+    const { nome, email, senha, avatar } = req.body;
+    const secret = "84edbc64b2e424f48fd21c08e26d9dd9";
 
     const senha_hash = await bcrypt.hash(senha, 8);
+    const token = jwt.sign({ nome }, secret, {
+        expiresIn: '1d'
+    });
 
-    const users = await getRepository(User).save({
+    const user = await getRepository(User).save({
         nome,
-        sobrenome,
         email,
         senha: senha_hash,
-        cargo,
-        rg,
-        cpf
+        token,
+        avatar
     });
-    return res.json(users);
+    return res.json(user);
 }
 
 //register cliente
-export const registerC = async(req: Request, res: Response) => {
-    const { nome, email, senha } = req.body;
+export const register_cliente = async(req: Request, res: Response) => {
+    const { nome, email, senha, avatar } = req.body;
+    const secret = "84edbc64b2e424f48fd21c08e26d9dd9";
 
     const senha_hash = await bcrypt.hash(senha, 8);
+    const token = jwt.sign({ nome }, secret, {
+        expiresIn: '1d'
+    });
 
     const user = await getRepository(Cliente).save({
         nome,
         email,
-        senha: senha_hash
+        senha: senha_hash,
+        avatar,
+        token
     });
 
     return res.json(user);
 }
 
-//loga
-export const login = async(req: Request, res: Response) => {
+//loga admin
+export const login_admin = async(req: Request, res: Response) => {
     const { email, senha} = req.body;
     const secret = "84edbc64b2e424f48fd21c08e26d9dd9";
 
-    const user = await getRepository(User).find({
-        where: {
-            email
-        }
-    });
+    const user = await getRepository(User).find(
+        {
+            select: ["id", "nome", "email", "senha", "avatar", "token"],
+            relations: ["carrinho"],
+            where: { email }
+        });
     
     if(user.length === 1){ 
         if(await bcrypt.compare(senha, user[0].senha)){
@@ -55,14 +64,9 @@ export const login = async(req: Request, res: Response) => {
                 expiresIn: '1d'
             });
 
-            const data = {
-                id: user[0].id,
-                nome: user[0].nome,
-                email: user[0].email,
-                token
-            }
+            user[0].token = token;
 
-            return res.json(data);
+            return res.json(user);
         }
         else{
             return res.status(404).json({message: 'user nao existe'});
@@ -74,31 +78,26 @@ export const login = async(req: Request, res: Response) => {
 }
 
 //loga cliente
-export const loginc = async(req: Request, res: Response) => {
+export const login_cliente = async(req: Request, res: Response) => {
     const { email, senha} = req.body;
     const secret = "84edbc64b2e424f48fd21c08e26d9dd9";
 
-    const client = await getRepository(Cliente).find({
-        where: {
-            email
-        }
-    });
+    const cliente = await getRepository(Cliente).find(
+        {
+            select: ["id", "nome", "email", "senha", "avatar", "token"],
+            relations: ["carrinho"],
+            where: { email }
+        });
     
-    if(client.length === 1){ 
-        if(await bcrypt.compare(senha, client[0].senha)){
-            const token = jwt.sign({ id: client[0].id }, secret, {
+    if(cliente.length === 1){ 
+        if(await bcrypt.compare(senha, cliente[0].senha)){
+            const token = jwt.sign({ id: cliente[0].id }, secret, {
                 expiresIn: '1d'
             });
 
-            const data = {
-                id: client[0].id,
-                nome: client[0].nome,
-                email: client[0].email,
-                token
-            }
-            console.log(data)
+            cliente[0].token = token;
 
-            return res.json(data);
+            return res.json(cliente);
         }
         else{
             return res.status(404).json({message: 'cliente nao existe'});
@@ -110,31 +109,27 @@ export const loginc = async(req: Request, res: Response) => {
 }
 
 //recupera todos os usuarios no banco
-export const listUsersAdmin = async(req: Request, res: Response) => {
+export const list_users_admin = async(req: Request, res: Response) => {
     const users = await getRepository(User).find();
     return res.json(users);
 }
 
 //add usuario no banco pelo sistema
-export const addUsersAdmin = async(req: Request, res: Response) => {
+export const add_users_admin = async(req: Request, res: Response) => {
     const { nome, sobrenome, email, cargo, rg, cpf, senha } = req.body;
     const senha_hash = await bcrypt.hash(senha, 8);
 
     const users = await getRepository(User).save({
         nome,
-        sobrenome,
         email,
-        senha: senha_hash,
-        cargo,
-        rg,
-        cpf
+        senha: senha_hash
     });
 
     return res.json(users);
 }
 
 //deletar um usuario no banco
-export const delUserAdmin = async(req: Request, res: Response) => {
+export const del_user_admin = async(req: Request, res: Response) => {
     const { id } = req.params;
 
     const resultado = await getRepository(User).delete(id);
@@ -145,7 +140,7 @@ export const delUserAdmin = async(req: Request, res: Response) => {
 }
 
 //edita um usuario no banco
-export const upUserAdmin = async(req: Request, res: Response) => {
+export const up_user_admin = async(req: Request, res: Response) => {
     const { id } = req.params;
 
     const resultado = await getRepository(User).update(id, req.body);

@@ -1,13 +1,25 @@
 import { Router } from 'express';
 import cors from 'cors';
-import { getHome, getProdutos, getProduto } from './controller/ChomeController';
-import { getCarrinho, postCarrinho } from './controller/CarrinhoController';
+import {
+    get_home,
+    get_produtos,
+    get_produto,
+    add_carrinho
+} from './controller/ChomeController';
 import { getHomeAdmin, addInstagramAdmin, addCategoriaAdmin, addBlogAdmin, addSlidersAdmin } from './controller/HomeController';
 import { listProdutosAdmin, addProdutosAdmin, delProdutoAdmin, upProdutoAdmin } from './controller/ProdutosController';
-import { register, registerC, listUsersAdmin, addUsersAdmin, login, loginc, delUserAdmin, upUserAdmin } from './controller/AccountController';
+import {
+    register_cliente,
+    register_admin,
+    list_users_admin,
+    add_users_admin,
+    login_admin,
+    login_cliente,
+    del_user_admin,
+    up_user_admin
+} from './controller/AccountController';
 import { auth } from './middlewares/auth';
 
-import { postClass, getClass } from './controller/ClassController';
 
 
 const routes = Router();
@@ -37,47 +49,44 @@ const options:cors.CorsOptions = {
 //use cors middleware
 routes.use(cors(options));
 
-routes.get('/', getHome); //feito
+routes.get('/', get_home); //feito
 
-routes.get('/home', getHome); //feito
-routes.get('/produtos', getProdutos); //feito
-routes.get('/produto/:id', getProduto); //feito
-
-//DEPLOY
-routes.post('/postclass', postClass);//
-routes.get('/getclass', getClass);//
+routes.get('/home', get_home); //feito
+routes.get('/produtos', get_produtos); //feito
+routes.get('/produto/:id', get_produto); //feito
 
 //AccountController
-routes.post('/register', register); //feito
-routes.post('/registerC', registerC); //feito
-routes.post('/login', login); //feito
-routes.post('/loginc', loginc); //
+routes.post('/register', register_admin); //feito
+routes.post('/registerC', register_cliente); //feito 
+routes.post('/login', login_admin); //feito
+routes.post('/loginc', login_cliente); //feito
 
 //middleware autenticacao
-routes.use(auth);
-
-//rotas apenas para cliente logado
-routes.get('/carrinho', getCarrinho); //feito
-routes.post('/addcarrinho', postCarrinho); //feito
+routes.use(auth);add_carrinho
 
 //permitidas para usuarios admin
+
+//rotas para clientes logados
+routes.post('/add_carrinho', add_carrinho);
+
+
 //HomeController
 routes.post('/add-instagram-admin', addInstagramAdmin);
 routes.post('/add-blog-admin', addBlogAdmin);
 
 //HomeController 
-routes.get('/home-admin', getHomeAdmin); //feito mas alterarei ainda
+routes.get('/home-admin', getHomeAdmin);
 routes.post('/add-sliders-admin', addSlidersAdmin);
 //ProdutoController
-routes.get('/list-produtos-admin', listProdutosAdmin); //feito
+routes.get('/list-produtos-admin', listProdutosAdmin); 
 routes.put('/up-produto-admin/:id', upProdutoAdmin);
 routes.post('/add-produto-admin', addProdutosAdmin);//
 routes.delete('/del-produto-admin/:id', delProdutoAdmin);
 //UsuarioController
-routes.get('/list-usuarios-admin', listUsersAdmin); //feito
-routes.post('/add-usuario-admin', addUsersAdmin); //feito
-routes.delete('/del-usuario-admin/:id', delUserAdmin);
-routes.put('/up-usuario-admin/:id', upUserAdmin);
+routes.get('/list-usuarios-admin', list_users_admin); 
+routes.post('/add-usuario-admin', add_users_admin); 
+routes.delete('/del-usuario-admin/:id', del_user_admin);
+routes.put('/up-usuario-admin/:id', up_user_admin);
 routes.post('/add-categoria-admin', addCategoriaAdmin);
 //enable pre-flight
 
