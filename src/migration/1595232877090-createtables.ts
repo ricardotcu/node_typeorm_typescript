@@ -14,20 +14,20 @@ export class createtables1595232877090 implements MigrationInterface {
       await queryRunner.query(
         `CREATE TABLE "categorias_home" ("id" uuid NOT NULL DEFAULT uuid_generate_v4(),
         "caminho" character varying(100) NOT NULL,
-        CONSTRAINT "PK_239512aefbb11a5b2fa92696828" PRIMARY KEY ("id"))`,
+        CONSTRAINT "PK_234512aefbb11a5b2fa92696828" PRIMARY KEY ("id"))`,
       );
 
       await queryRunner.query(
           `CREATE TABLE "instagram" ("id" uuid NOT NULL DEFAULT uuid_generate_v4(),
           "caminho" character varying(100) NOT NULL,
-          CONSTRAINT "PK_239512aefbb11a5b2fa92696828" PRIMARY KEY ("id"))`,
+          CONSTRAINT "PK_239512aefbc11a5b2fa92696828" PRIMARY KEY ("id"))`,
       );
 
       await queryRunner.query(
         `CREATE TABLE "slider" ("id" uuid NOT NULL DEFAULT uuid_generate_v4(),
         "descricao" character varying(250) NOT NULL,  
         "caminho" character varying(100) NOT NULL,
-        CONSTRAINT "PK_239512aefbb11a5b2fa92696828" PRIMARY KEY ("id"))`,
+        CONSTRAINT "PK_239512aefbb11a5b2fa92796828" PRIMARY KEY ("id"))`,
       );
 
       await queryRunner.query(
@@ -37,7 +37,7 @@ export class createtables1595232877090 implements MigrationInterface {
         "senha" character varying(100) NOT NULL,
         "avatar" character varying(100) NOT NULL,
         "token" character varying(300) NOT NULL,
-        CONSTRAINT "PK_239512aefbb11a5b2fa92696828" PRIMARY KEY ("id"))`,
+        CONSTRAINT "PK_239512affbb11a5b2fa92696828" PRIMARY KEY ("id"))`,
       );
 
       await queryRunner.query(
@@ -47,14 +47,14 @@ export class createtables1595232877090 implements MigrationInterface {
         "valor" integer NOT NULL,  
         "caminho" character varying(100) NOT NULL,
         "destaque" character varying(5) NOT NULL,
-        CONSTRAINT "PK_239512aefbb11a5b2fa92696828" PRIMARY KEY ("id"))`,
+        CONSTRAINT "PK_239512aefbb11b5b2fa92696828" PRIMARY KEY ("id"))`,
       );
 
 
       await queryRunner.query(
         `CREATE TABLE "categoria" ("id" uuid NOT NULL DEFAULT uuid_generate_v4(),
         "nome" character varying(250) NOT NULL,
-        CONSTRAINT "PK_239512aefbb11a5b2fa92696828" PRIMARY KEY ("id"))`,
+        CONSTRAINT "PK_239512aefbb11a5b2fa93696828" PRIMARY KEY ("id"))`,
       );
       
       await queryRunner.query(
@@ -64,7 +64,7 @@ export class createtables1595232877090 implements MigrationInterface {
         "senha" character varying(100) NOT NULL,
         "avatar" character varying(100) NOT NULL,
         "token" character varying(300) NOT NULL,
-        CONSTRAINT "PK_239512aefbb11a5b2fa92696828" PRIMARY KEY ("id"))`,
+        CONSTRAINT "PK_249513aefbb11a5b2fa92696828" PRIMARY KEY ("id"))`,
       );
 
       await queryRunner.query(
