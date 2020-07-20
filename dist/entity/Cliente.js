@@ -17,11 +17,7 @@ function _applyDecoratedDescriptor(target, property, decorators, descriptor, con
 
 function _initializerWarningHelper(descriptor, context) { throw new Error('Decorating class property failed. Please ensure that ' + 'proposal-class-properties is enabled and runs after the decorators transform.'); }
 
-let Cliente = (_dec = (0, _typeorm.Entity)(), _dec2 = (0, _typeorm.PrimaryGeneratedColumn)("uuid"), _dec3 = (0, _typeorm.Column)("varchar"), _dec4 = (0, _typeorm.Column)("varchar"), _dec5 = (0, _typeorm.Column)("varchar"), _dec6 = (0, _typeorm.Column)("varchar"), _dec7 = (0, _typeorm.Column)("varchar"), _dec8 = (0, _typeorm.ManyToMany)(type => _Produto.Produto), _dec9 = (0, _typeorm.JoinTable)(), _dec10 = (0, _typeorm.CreateDateColumn)({
-  name: 'created_At'
-}), _dec11 = (0, _typeorm.UpdateDateColumn)({
-  name: 'updated_At'
-}), _dec(_class = (_class2 = (_temp = class Cliente {
+let Cliente = (_dec = (0, _typeorm.Entity)(), _dec2 = (0, _typeorm.PrimaryGeneratedColumn)("uuid"), _dec3 = (0, _typeorm.Column)("varchar"), _dec4 = (0, _typeorm.Column)("varchar"), _dec5 = (0, _typeorm.Column)("varchar"), _dec6 = (0, _typeorm.Column)("varchar"), _dec7 = (0, _typeorm.Column)("varchar"), _dec8 = (0, _typeorm.ManyToMany)(type => _Produto.Produto), _dec9 = (0, _typeorm.JoinTable)(), _dec10 = (0, _typeorm.CreateDateColumn)(), _dec11 = (0, _typeorm.UpdateDateColumn)(), _dec(_class = (_class2 = (_temp = class Cliente {
   constructor() {
     _initializerDefineProperty(this, "id", _descriptor, this);
 

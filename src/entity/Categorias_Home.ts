@@ -8,9 +8,9 @@ export class Categorias_Home{
     @Column("varchar")
     caminho: string;
 
-    @CreateDateColumn({ name: 'created_At' })
+    @CreateDateColumn()
     createdAt: Date;
   
-    @UpdateDateColumn({ name: 'updated_At' })
+    @UpdateDateColumn()
     updatedAt: Date;
 }
