@@ -29,8 +29,10 @@ const routes = Router();
 const options:cors.CorsOptions = {
     allowedHeaders: [
         "Origin",
+        "X-Requested-With",
         "Content-Type",
         "Accept",
+        "X-Access-Token",
         "Authorization"
     ],
     credentials: true,
@@ -58,9 +60,9 @@ routes.get('/produto/:id', get_produto); //feito
 
 //AccountController
 routes.post('/register', register_admin); //feito
-routes.post('/registerC', register_cliente); //feito 
+routes.post('/register_cliente', register_cliente); //feito 
 routes.post('/login', login_admin); //feito
-routes.post('/loginc', login_cliente); //feito
+routes.post('/login_cliente', login_cliente); //feito
 routes.get('/categorias', categorias); //feito
 
 
