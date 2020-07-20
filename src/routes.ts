@@ -43,8 +43,10 @@ const options:cors.CorsOptions = {
         "https://keen-curie-febfbf.netlify.app",
         "https://keen-curie-febfbf.netlify.app/",
         "https://keen-curie-febfbf.netlify.app/home",
-        "https://keen-curie-febfbf.netlify.app/register",
-        "https://keen-curie-febfbf.netlify.app/register/"
+        "https://keen-curie-febfbf.netlify.app/register_cliente",
+        "https://keen-curie-febfbf.netlify.app/register_cliente/",
+        "https://keen-curie-febfbf.netlify.app/login_cliente",
+        "https://keen-curie-febfbf.netlify.app/login_cliente/"
     ],
     preflightContinue: false
 };
