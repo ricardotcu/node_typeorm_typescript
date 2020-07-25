@@ -37,7 +37,10 @@ const options: cors.CorsOptions = {
     credentials: true,
     methods: "GET,HEAD,OPTIONS,PUT,PATCH,POST,DELETE",
     origin: [
-        "*"
+        "*",
+        "https://keen-curie-febfbf.netlify.app",
+        "https://keen-curie-febfbf.netlify.app/",
+        "https://keen-curie-febfbf.netlify.app/home"
     ],
     preflightContinue: false
 };

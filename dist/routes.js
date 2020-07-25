@@ -27,7 +27,7 @@ const options = {
   allowedHeaders: ["Origin", "X-Requested-With", "Content-Type", "Accept", "Authorization"],
   credentials: true,
   methods: "GET,HEAD,OPTIONS,PUT,PATCH,POST,DELETE",
-  origin: ["*"],
+  origin: ["*", "https://keen-curie-febfbf.netlify.app", "https://keen-curie-febfbf.netlify.app/", "https://keen-curie-febfbf.netlify.app/home"],
   preflightContinue: false
 }; //use cors middleware
 
